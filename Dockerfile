@@ -1,9 +1,9 @@
 FROM debian:buster-slim
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-#RUN groupadd -r mysql && useradd -r -g mysql mysql
+RUN groupadd -r mysql && useradd -r -g mysql mysql
 
-RUN  useradd admin && echo "admin:admin" | chpasswd && adduser admin sudo
+#RUN  useradd admin && echo "admin:admin" | chpasswd && adduser admin sudo
 #USER admin
 
 RUN apt-get update && apt-get install -y --no-install-recommends gnupg dirmngr && rm -rf /var/lib/apt/lists/*

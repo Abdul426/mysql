@@ -1,7 +1,7 @@
 FROM debian:buster-slim
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
-RUN groupadd -r mysql && useradd -r -g mysql sudo
+RUN groupadd -r mysql && useradd -r -g mysql mysql
 
 #RUN  useradd admin && echo "admin:admin" | chpasswd && adduser admin sudo
 #USER admin
@@ -89,8 +89,8 @@ CMD ["mysqld"]
 
 #RUN groupadd -r mysshuser && useradd -r -g mysshuser mysshuser
 
-RUN apt-get update && apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
+#RUN apt-get update && apt-get install -y openssh-server
+#RUN mkdir /var/run/sshd
 
 #RUN echo 'root:root' |chpasswd
 
@@ -99,8 +99,8 @@ RUN mkdir /var/run/sshd
 
 #RUN mkdir /root/.ssh
 
-EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+#EXPOSE 22
+#CMD ["/usr/sbin/sshd", "-D"]
 
 
 
